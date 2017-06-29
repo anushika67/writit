@@ -9,7 +9,12 @@ class PagesController extends Controller{
      }
 
     public function getAbout() {
-        return view('pages.about')
+
+        $first = "anushika";
+        $last = "anand";
+        $full = $first . " " . $last;
+
+        return view('pages.about')->withfullname($full);
     }
 
     public function getContact() {
