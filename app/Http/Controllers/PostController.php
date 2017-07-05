@@ -16,7 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+      $posts = Post::all();
+
+      return view('posts.index')-> withPosts($posts);
     }
 
     /**
@@ -67,7 +69,7 @@ class PostController extends Controller
     {
       $post = Post::find($id);
       return view('posts.show')->withPost($post);
-      
+
     }
 
     /**
