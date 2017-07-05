@@ -51,7 +51,7 @@ class PostController extends Controller
         $post->save();
 
        Session::flash('success','this blog post is posted successfully');
-       
+
         return redirect()->route('posts.show',$post->id);
 
 
@@ -65,7 +65,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return view('posts.show');
+      $post = Post::find($id);
+      return view('posts.show')->withPost($post);
+      
     }
 
     /**
@@ -76,7 +78,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
