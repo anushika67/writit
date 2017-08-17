@@ -94,8 +94,22 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+      $this->validate($request,array(
+
+        'title' => 'required|max:255' ,
+        'body' => 'required' ,
+      ));
+      $post = Post::find($id);
+      $post ->title = $request->input('title');
+      $post ->body = $request->input('body');
+
+      $post->save();
+
+      Session::flash('success','this post is successfully submitted');
+
+      return redirect()->route('posts.show',$post->id);
+
+     }
 
     /**
      * Remove the specified resource from storage.

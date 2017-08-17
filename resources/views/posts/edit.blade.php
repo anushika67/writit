@@ -5,10 +5,10 @@
 @section('content')
 
 <div class="row">
-  {!!Form::model( $post , ['route' => ['posts.update',$post->id ]])!!}
+  {!!Form::model( $post , ['route' => ['posts.update',$post->id ],'method' =>'PUT'])!!}
   <div class="col-md-8">
     {{ Form::text('title',null, ["class" => 'form-control'])}}
-    {{ Form::textarea('title',null,["class" => 'form-control'])}}
+    {{ Form::textarea('body',null,["class" => 'form-control'])}}
   </div>
   <div class="col-md-4">
     <div class="well">
@@ -28,7 +28,7 @@
 
       </div>
       <div class="col-sm-6">
-        {!! Html::linkRoute('posts.update','Save Changes',array($post->id),array('class' =>"btn btn-primary btn-block"))!!}
+          {{ Form::submit('submit', ["class" => 'btn btn-success btn-block'])}}
         </div>
        </div>
     </div>
