@@ -1,5 +1,5 @@
 @extends('main')
-@section('title','|homepage')  
+@section('title','|homepage')
 @section('content')
     <div class="row">
       <div class="col-md-12">
@@ -13,18 +13,13 @@
   <div class="row">
     <div class="col-md-8">
       <div class="post">
-        <h3>post title</h3>
-         <p>hhdcjj </p1>
+        @foreach ($post as $post)
+        <h3>{{ $post->title}}</h3>
+         <p>{{ $post->body}}</p1>
           <a href="readmore" class="btn btn-primary">read more</a>
         <hr>
-        <h3>post title</h3>
-         <p>hhdcjj </p1>
-          <a href="readmore" class="btn btn-primary">read more</a>
-         <hr>
-        <h3>post title</h3>
-         <p>hhdcjj </p1>
-          <a href="readmore" class="btn btn-primary">read more</a>
       </div>
+          @endforeach
     </div>
      <div class="col-md-3 col-md-offset-1">
        <h2>Sidebar</h2>
